@@ -9,4 +9,5 @@ FROM mcr.microsoft.com/vscode/devcontainers/rust:1-${VARIANT}
 RUN cargo install cargo-watch
 # cargo runが上のせいで動かなくなってた。
 # /usr/local/cargo/registryでPermisson Dinedが起きていた
-RUN chmod u+rw -R /usr/local/cargo/registry/ 
+# rustlangグループにvscodeグループとして参加してる
+RUN chmod g+rw -R /usr/local/cargo/registry/ 
