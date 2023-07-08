@@ -7,3 +7,6 @@ FROM mcr.microsoft.com/vscode/devcontainers/rust:1-${VARIANT}
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 RUN cargo install cargo-watch
+# cargo runが上のせいで動かなくなってた。
+# /usr/local/cargo/registryでPermisson Dinedが起きていた
+RUN chmod u+rw -R /usr/local/cargo/registry/ 
