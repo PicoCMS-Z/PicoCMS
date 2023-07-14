@@ -3,6 +3,7 @@
         "rust-lang.rust-analyzer",
         "panicbit.cargo",
         "serayuzgur.crates",
-        "saikou9901.evilinspector"
+        "saikou9901.evilinspector",
+        "seatonjiang.gitmoji-vscode"
     ]
 }
