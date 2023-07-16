@@ -1,5 +1,6 @@
 use axum::extract::State;
 use axum::{extract, response};
+// cursorのイテレータを使うため
 use futures::StreamExt;
 
 use crate::database::Db;
