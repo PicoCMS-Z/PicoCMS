@@ -70,3 +70,34 @@ pub async fn read_one(
 
     response::Json(user)
 }
+
+pub async fn update(
+    State(db): State<Db>,
+    extract::Path(id): extract::Path<bson::oid::ObjectId>,
+    extract::Json(user): extract::Json<User>,
+) -> response::Json<User> {
+    let user_collection = db.0.collection::<Document>("user");
+
+    use mongodb::bson::doc;
+
+    let filter = doc! { "_id": id };
+
+    // let serialized_user = bson::to_bson(&user).unwrap();
+    // let serialized_user = serialized_user.as_document().unwrap();
+
+    let update_doc = doc! {
+        "$set":{
+            "name":user.name.clone(),
+            "email":user.email.clone(),
+            "password":user.password.clone()
+        }
+    };
+
+    user_collection
+        .update_one(filter, update_doc, None)
+        .await
+        .unwrap();
+
+    response::Json(user)
+}
+

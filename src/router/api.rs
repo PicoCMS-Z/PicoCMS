@@ -10,4 +10,5 @@ pub fn api_routes() -> Router<Db> {
         .route("/read", get(api::user::read_all))
         .route("/read/:id", get(api::user::read_one))
         .route("/create", post(api::user::create))
+        .route("/update/:id", post(api::user::update))
 }
