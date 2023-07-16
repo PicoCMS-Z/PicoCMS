@@ -11,11 +11,12 @@ pub fn api_routes() -> Router<Db> {
 }
 
 fn user_router() -> Router<Db> {
-    Router::new().route("/", get(api::user::read_all)).route(
-        "/:id",
-        get(api::user::read_one)
-            .post(api::user::create)
-            .put(api::user::update)
-            .delete(api::user::delete),
-    )
+    Router::new()
+        .route("/", get(api::user::read_all).post(api::user::create))
+        .route(
+            "/:id",
+            get(api::user::read_one)
+                .put(api::user::update)
+                .delete(api::user::delete),
+        )
 }
