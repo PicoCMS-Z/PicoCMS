@@ -81,9 +81,6 @@ pub async fn update(
 
     let filter = doc! { "_id": id };
 
-    // let serialized_user = bson::to_bson(&user).unwrap();
-    // let serialized_user = serialized_user.as_document().unwrap();
-
     let update_doc = doc! {
         "$set":{
             "name":user.name.clone(),
