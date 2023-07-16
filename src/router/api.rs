@@ -1,9 +1,9 @@
-use axum::routing::get;
+use axum::routing::{get,post};
 use axum::Router;
 
 use crate::database::Db;
 
-use crate::api;
+use crate::router::api;
 
 pub fn api_routes() -> Router<Db> {
     Router::new() 
