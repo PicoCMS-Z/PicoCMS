@@ -3,7 +3,7 @@ use axum::Router;
 
 mod database;
 mod router;
-
+mod api;
 mod model;
 // use crate::database::Db;
 

@@ -1,30 +1,22 @@
-use axum::extract::State;
-use axum::response::Json;
 use axum::routing::get;
+
 use axum::Router;
-use mongodb::bson;
-use mongodb::bson::Document;
 
 use crate::database::Db;
 
-use super::super::model::user::User;
+use crate::api;
 
 pub fn api_routes() -> Router<Db> {
+    Router::new().nest("/v0-alpha/users", user_router())
+}
+
+fn user_router() -> Router<Db> {
     Router::new()
-        .route("/", get(hello_world))
-        .route("/user", get(get_user))
-}
-
-// sample handler
-async fn hello_world() -> &'static str {
-    "Hello, World!"
-}
-
-
-//sample detabase handler
-async fn get_user(State(db): State<Db>) -> Json<User> {
-    let user_collection = db.0.collection::<Document>("user");
-    let user = user_collection.find_one(None, None).await.unwrap().unwrap();
-    let user: User = bson::from_bson(bson::Bson::Document(user)).unwrap();
-    Json(user)
+        .route("/", get(api::user::read_all).post(api::user::create))
+        .route(
+            "/:id",
+            get(api::user::read_one)
+                .put(api::user::update)
+                .delete(api::user::delete),
+        )
 }
