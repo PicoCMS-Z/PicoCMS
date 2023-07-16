@@ -1,4 +1,5 @@
-use axum::routing::get;
+use axum::routing::{get,post};
+
 use axum::Router;
 
 use crate::database::Db;
@@ -10,4 +11,5 @@ pub fn api_routes() -> Router<Db> {
         .route("/create", post(api::user::create))
         .route("/read", get(api::user::read_all))
         .route("/read/:id", get(api::user::read_one))
+        .route("/update/:id", post(api::user::update))
 }
