@@ -101,3 +101,14 @@ pub async fn update(
     response::Json(user)
 }
 
+pub async fn delete(State(db): State<Db>, extract::Path(id): extract::Path<bson::oid::ObjectId>) {
+    let user_collection = db.0.collection::<Document>("user");
+
+    use mongodb::bson::doc;
+
+    let filter = doc! { "_id": id };
+
+    user_collection.delete_one(filter, None).await.unwrap();
+
+    // 状態を返却したい
+}
