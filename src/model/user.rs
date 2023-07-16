@@ -11,6 +11,9 @@ pub struct User {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct Users(pub Vec<User>);
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct NewUser {
     pub name: String,
     pub email: String,
