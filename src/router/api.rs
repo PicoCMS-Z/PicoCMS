@@ -7,7 +7,7 @@ use mongodb::bson::Document;
 
 use crate::database::Db;
 
-
+use crate::api;
 
 pub fn api_routes() -> Router<Db> {
     Router::new() 
