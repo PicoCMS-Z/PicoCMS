@@ -9,3 +9,7 @@ pub struct User {
     pub email: String,
     pub password: String,
 }
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Users(pub Vec<User>);
+
