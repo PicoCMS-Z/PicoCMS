@@ -1,4 +1,4 @@
-# pico_cms
+# Pico-CMS
 
 APIベースのヘッドレスCMS  
 
