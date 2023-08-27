@@ -1,0 +1,22 @@
+{
+	"id": 0,
+	"title": "next.jsでブログを作ってみた。",
+	"authorId": 0,
+	"topImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/440px-Nextjs-logo.svg.png",
+	"tagId": [
+		0,
+		1,
+		2
+	],
+
+	"createdAt": "2020-01-01T00:00:00.000Z",
+	"updatedAt": "2020-01-01T00:00:00.000Z",
+
+	"body": "next.jsでブログを作ってみた。",
+
+	"articleImage":	[
+		"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/440px-Nextjs-logo.svg.png",
+		"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/440px-Nextjs-logo.svg.png",
+		"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/440px-Nextjs-logo.svg.png"
+	]
+}
